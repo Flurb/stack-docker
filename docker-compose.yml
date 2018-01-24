@@ -74,7 +74,7 @@ services:
   setup_filebeat:
     image: docker.elastic.co/beats/filebeat:${TAG}
     volumes: ['./scripts/setup-beat.sh:/usr/local/bin/setup-beat.sh:ro']
-    command: ['/usr/local/bin/setup-beat.sh', './filebeat']
+    command: /usr/local/bin/setup-beat.sh filebeat
     environment: ['ELASTIC_PASSWORD=${ELASTIC_PASSWORD}']
     networks: ['stack']
     depends_on: ['kibana']
